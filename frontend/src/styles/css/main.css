@@ -1,0 +1,144 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.is-container > img, .is-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.element-tilt {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.element-tilt img {
+  position: absolute;
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
+
+.ir-stack {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ir-stack > * {
+  position: absolute;
+}
+
+.transition {
+  animation: spin1 6s ease-in, spin2 10s linear 6s infinite, shrink 20s linear 16s forwards;
+}
+
+@keyframes spin1 {
+  to {
+    transform: rotate3d(1, 2, 1, 100deg);
+  }
+}
+@keyframes spin2 {
+  from, to {
+    transform: rotate3d(1, 2, 1, 100deg);
+  }
+  50% {
+    transform: rotate3d(0, -12, 5, 100deg);
+  }
+}
+@keyframes enlarge {
+  to {
+    transform: scale(1.2);
+  }
+}
+@keyframes shrink {
+  to {
+    width: 0;
+    height: 0;
+  }
+}
+.is-container > svg {
+  border: 2px solid red;
+  width: 800px;
+  height: 800px;
+}
+@keyframes pulse {
+  from, to {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.infinite-spin {
+  position: relative;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+}
+.infinite-spin .glass {
+  width: 200px;
+  padding: 1rem;
+  color: rgb(20, 64, 90);
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+.infinite-spin .glass:before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  height: 540px;
+  width: 20px;
+  background: rgba(255, 255, 255, 0.3);
+  filter: blur(2px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transform: rotate(25deg) translateX(-200px);
+}
+.infinite-spin .glass:hover {
+  animation: tilt 5s linear infinite;
+}
+.infinite-spin .glass:hover:before {
+  animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  from, to {
+    transform: rotate(25deg) translate(180px, 70px);
+  }
+  50% {
+    transform: rotate(25deg) translate(-180px);
+  }
+}
+@keyframes tilt {
+  from, to {
+    transform: translate(-50%, -50%) skewY(5deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) skewY(-5deg);
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

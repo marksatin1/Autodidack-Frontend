@@ -1,0 +1,23 @@
+.is-container {
+  @extend %center-abs;
+
+  & > svg {
+    border: 2px solid red;
+    width: 800px;
+    height: 800px;
+  }
+
+  & > img {
+    @extend %center-abs;
+  }
+}
+
+@keyframes pulse {
+  from,
+  to {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}

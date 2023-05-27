@@ -1,0 +1,132 @@
+.infinite-spin {
+  position: relative;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+
+  .glass {
+    width: 200px;
+    padding: 1rem;
+    color: rgba(20, 64, 90, 1);
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: -40%;
+      height: 540px;
+      width: 20px;
+      background: rgba(255, 255, 255, 0.3);
+      filter: blur(2px);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transform: rotate(25deg) translateX(-200px);
+    }
+
+    &:hover {
+      animation: tilt 5s linear infinite;
+
+      &:before {
+        animation: shine 5s linear infinite;
+      }
+    }
+  }
+}
+
+@keyframes shine {
+  from,
+  to {
+    transform: rotate(25deg) translate(180px, 70px);
+  }
+  50% {
+    transform: rotate(25deg) translate(-180px);
+  }
+}
+
+@keyframes tilt {
+  from,
+  to {
+    transform: translate(-50%, -50%) skewY(5deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) skewY(-5deg);
+  }
+}
+
+// @keyframes spin2 {
+//   from,
+//   to {
+//     transform: rotate3d(1, 2, 1, 100deg);
+//   }
+//   50% {
+//     transform: rotate3d(0, -12, 5, 100deg);
+//   }
+// }
+
+// @keyframes glare {
+//   from,
+//   to {
+//     transform: rotate3d(1, 2, 1, 100deg) translate($translationX, 50px);
+//   }
+//   50% {
+//     transform: rotate3d(0, -12, 5, 100deg) translateX(-$translationX);
+//   }
+// }
+
+// @keyframes spin1 {
+//   to {
+//     transform: rotate3d(1, 2, 1, 100deg);
+//   }
+// }
+
+// @keyframes spin2 {
+//   from,
+//   to {
+//     transform: rotate3d(1, 2, 1, 100deg);
+//   }
+//   50% {
+//     transform: rotate3d(0, -12, 5, 100deg);
+//   }
+// }
+
+// @keyframes shrink {
+//   to {
+//     width: 0;
+//     height: 0;
+//   }
+// }
+
+// @keyframes throw-perspective {
+//   from,
+//   to {
+//     perspective-origin: 55% 50%;
+//     perspective: 1000px;
+//   }
+// }
+
+// @keyframes warp {
+//   from {
+//     width: 0;
+//     height: 0;
+//     // order of transforms makes a difference!
+//     transform: rotateY(90deg) translateX(250%);
+//   }
+//   60% {
+//     width: $imgWidth * 0.5;
+//     height: $imgHeight * 0.5;
+//   }
+//   to {
+//     width: $imgWidth * 1.5;
+//     height: $imgHeight * 1.5;
+//     // order of transforms makes a difference!
+//     transform: rotateY(90deg) translateX(-250%) rotateZ(-360deg);
+//   }
+// }

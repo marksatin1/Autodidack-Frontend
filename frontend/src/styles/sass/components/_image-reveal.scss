@@ -1,0 +1,52 @@
+$imgWidth: 1050px;
+$imgHeight: 1280px;
+$translationX: 300px;
+
+.ir-stack {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & > * {
+    position: absolute;
+  }
+}
+
+.transition {
+  animation: spin1 6s ease-in, spin2 10s linear 6s infinite, shrink 20s linear 16s forwards;
+
+  // &:hover {
+  //   animation: spin2 10s linear 6s infinite, enlarge 2s linear forwards;
+  // }
+}
+
+@keyframes spin1 {
+  to {
+    transform: rotate3d(1, 2, 1, 100deg);
+  }
+}
+
+@keyframes spin2 {
+  from,
+  to {
+    transform: rotate3d(1, 2, 1, 100deg);
+  }
+  50% {
+    transform: rotate3d(0, -12, 5, 100deg);
+  }
+}
+
+@keyframes enlarge {
+  to {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes shrink {
+  to {
+    width: 0;
+    height: 0;
+  }
+}
